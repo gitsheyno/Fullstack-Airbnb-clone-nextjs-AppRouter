@@ -4,9 +4,11 @@ import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModel";
 export default function UserMenu() {
+  //----------------------------<< for Login >>----------------------------
+  const loginModal = useLoginModal();
   //----------------------------<< for Register >>----------------------------
-
   const registerModel = useRegisterModal();
 
   //----------------------------<< State to Open The user Menu >>----------------------------
@@ -63,7 +65,7 @@ export default function UserMenu() {
       </div>
       {isOpen && (
         <>
-          <MenuItem onClick={() => {}} label="Login" />
+          <MenuItem onClick={loginModal.onOpen} label="Login" />
           <MenuItem onClick={registerModel.onOpen} label="Sign up" />
         </>
       )}
