@@ -5,7 +5,7 @@ import { Inter, Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import RegisterModal from "../app/components/modal/RegisterModal";
 import getCurrentUser from "./actions/getCurrentUser";
-import { User } from "@prisma/client";
+
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {

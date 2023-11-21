@@ -23,7 +23,6 @@ export default function UserMenu({ currentUser }: NavbarProps) {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
-
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
@@ -63,7 +62,7 @@ export default function UserMenu({ currentUser }: NavbarProps) {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar src="/images/placeholder.jpg" />
+            <Avatar src={currentUser?.image || "/images/placeholder.jpg"} />
           </div>
         </div>
       </div>

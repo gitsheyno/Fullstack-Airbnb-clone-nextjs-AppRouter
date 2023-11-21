@@ -1,4 +1,5 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
 import axios from "axios";
@@ -97,7 +98,9 @@ export default function RegisterModal() {
         outline
         label="Continue with Github"
         icon={FaGithub}
-        onClick={() => {}}
+        onClick={() => {
+          signIn("github");
+        }}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="flex flex-row items-center gap-2">
