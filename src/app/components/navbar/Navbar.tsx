@@ -2,8 +2,13 @@ import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 import Search from "./Search";
 import Container from "../Container";
+import { User } from "@prisma/client";
 
-const Navbar = () => {
+type NavbarProps = {
+  currentUser: User | null;
+};
+
+const Navbar = ({ currentUser }: NavbarProps) => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div
@@ -25,7 +30,7 @@ const Navbar = () => {
           >
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>

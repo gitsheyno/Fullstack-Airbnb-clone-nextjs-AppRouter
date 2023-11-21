@@ -1,11 +1,11 @@
 import "./components/globals.css";
 import LoginModal from "./components/modal/LoginModal";
-import Modal from "./components/modal/Modal";
 import ToasterProvider from "./providers/ToasterProvider";
 import { Inter, Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import RegisterModal from "../app/components/modal/RegisterModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import { User } from "@prisma/client";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,15 +18,17 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  //-----------------------<< Fetching User Info >>-----------------------
   const currentUSer = await getCurrentUser();
-  console.log(currentUSer);
+
   return (
     <html lang="en">
       <body className={nunito.className}>
         <ToasterProvider />
         <LoginModal />
         <RegisterModal />
-        <Navbar />
+        <Navbar currentUser={currentUSer} />
+
         {children}
       </body>
     </html>
